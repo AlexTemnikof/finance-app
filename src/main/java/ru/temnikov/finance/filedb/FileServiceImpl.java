@@ -26,7 +26,6 @@ public class FileServiceImpl implements FileService {
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
 
             out.writeObject(userService.getUsers());
-            System.out.println("Object serialized to file: " + FILENAME);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,7 +39,6 @@ public class FileServiceImpl implements FileService {
 
             List<User> deserializedUsers = (List<User>) in.readObject();
             userService.setUsers(deserializedUsers);
-            System.out.println("Deserialized object: " + deserializedUsers);
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
